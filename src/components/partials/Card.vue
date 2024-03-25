@@ -1,17 +1,25 @@
 <script>
    export default {
-        
+        props:{
+          name: String,
+          status: String,
+          species: String,
+          image: String,
+        }
   }
 </script>
     
 <template>
-  <div class="col">
+  <div class="col row-cols-4">
     <div class="card" style="width: 18rem;">
-      <img src="..." class="card-img-top" alt="...">
+      <img :src="image" class="card-img-top" alt="name">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+    
+        <h5 class="card-title">{{name}}</h5>
+        <p class="card-text">{{ status }}</p>
+        <p class="card-text">{{ status }}</p>
+
+
       </div>
     </div>
   </div>

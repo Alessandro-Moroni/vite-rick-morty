@@ -16,11 +16,17 @@ import {store} from '../data/store'
 
 <template>
   <div class="text-center my-5 container">
-    <button @click="store.counter++" class="btn btn-primary mb-5">Incrementa contatore</button>
-    <input class="form-control" type="text" v-model="store.mainTitle">
+
 
     <div class="row row-cols-4 mt-4">
-      <Card v-for="card in this.store.cardList" :key="card.id" class="mb-5"/>
+      <Card
+        v-for="card in this.store.cardList"
+        :key="card.id"
+        class="mb-5" 
+        :name="card.name"
+        :status="card.status"
+        :species="card.species"
+        :image="card.image"/>
   
     </div>
   </div>
