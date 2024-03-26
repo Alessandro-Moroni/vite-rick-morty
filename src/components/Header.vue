@@ -3,7 +3,18 @@ import {store} from '../data/store'
   export default {  
     data(){
       return{
-        store
+        store,
+        nameSearch: '',
+      }
+    },
+    methods:{
+      searchName(){
+        this.store.queryParams={
+          offset: 0,
+
+          name: this.nameSearch
+        }
+        this.$emit('searchName')
       }
     }
     
@@ -18,7 +29,13 @@ import {store} from '../data/store'
     <div class="row row-cols-4">
       
   
-      <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+      <input
+        class="form-control"
+        list="datalistOptions"
+        id="exampleDataList"
+        placeholder="Type to search..."
+        v-model.trim="nameSearch"
+        @keyup.enter="searchName">
       <datalist id="datalistOptions">
         <option
           v-for="(listName, index) in this.store.nameList"

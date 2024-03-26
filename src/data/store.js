@@ -8,6 +8,6 @@ export const store = reactive({
   nameUrl: 'https://rickandmortyapi.com/api/character',
   nameList: [],
   queryParams:{
-    name: '',
+ 
   }
 })
