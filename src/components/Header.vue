@@ -19,7 +19,13 @@ import {store} from '../data/store'
           species: this.speciesSearch,
         }
         this.$emit('searchName')
-      }
+      },
+      resetSearch(){
+        this.nameSearch = '',
+        this.statusSearch = '',
+        this.speciesSearch = '',
+        this.searchName();
+      },
     }
     
   }
@@ -53,7 +59,8 @@ import {store} from '../data/store'
 
       </div>
 
-       <select name="" id="" class="col" v-model="statusSearch" @change="searchName">
+      <div class="col">
+       <select name="" id="" v-model="statusSearch" @change="searchName">
           <option value="" disabled selected>Select status</option>
           <option value="">Reset status</option>
           <option value="Alive">Alive</option>
@@ -61,8 +68,11 @@ import {store} from '../data/store'
           <option value="Unkown">Unknown</option>
        </select>
 
+      </div>
 
-        <select name="" id="" class="col" v-model="speciesSearch" @change="searchName">
+      <div class="col">
+
+        <select name="" id="" v-model="speciesSearch" @change="searchName">
           <option value="" disabled selected>Select species</option>
           <option value="">Reset species</option>
           <option value="Human">Human</option>
@@ -70,13 +80,24 @@ import {store} from '../data/store'
 
         </select>
 
-    </div>
+      </div>
 
+      <div class="col button">
+        <button type="button" class="btn btn-warning" @click="resetSearch">Reset</button>
+      </div>
+
+    </div>
+  
   </div>
 </template>
 
 
 
 <style lang="scss" scoped>
-
+select{
+  width: 200px;
+}
+.btn{
+  width: 150px;
+}
 </style>
