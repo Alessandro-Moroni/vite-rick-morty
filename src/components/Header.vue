@@ -5,6 +5,8 @@ import {store} from '../data/store'
       return{
         store,
         nameSearch: '',
+        statusSearch: '',
+        speciesSearch: '',
       }
     },
     methods:{
@@ -12,7 +14,9 @@ import {store} from '../data/store'
         this.store.queryParams={
           offset: 0,
 
-          name: this.nameSearch
+          name: this.nameSearch,
+          status: this.statusSearch,
+          species: this.speciesSearch,
         }
         this.$emit('searchName')
       }
@@ -49,23 +53,22 @@ import {store} from '../data/store'
 
       </div>
 
-      <div class="dropdown col">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Select status
-        </button>
-        <ul class="dropdown-menu" style="">
-          <li v-for="(listStatus, index) in this.store.statusList" :key="index" :value="listStatus"><a class="dropdown-item" href="#">{{ listStatus }}</a></li>
-        </ul>
-      </div>
+       <select name="" id="" class="col" v-model="statusSearch" @change="searchName">
+          <option value="" disabled selected>Select status</option>
+          <option value="">Reset status</option>
+          <option value="Alive">Alive</option>
+          <option value="Dead">Dead</option>
+          <option value="Unkown">Unknown</option>
+       </select>
 
-      <div class="dropdown col">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Select species
-        </button>
-        <ul class="dropdown-menu" style="">
-          <li v-for="(speciesList, index) in this.store.speciesList" :key="index" :value="speciesList"><a class="dropdown-item" href="#">{{ speciesList }}</a></li>
-        </ul>
-      </div>
+
+        <select name="" id="" class="col" v-model="speciesSearch" @change="searchName">
+          <option value="" disabled selected>Select species</option>
+          <option value="">Reset species</option>
+          <option value="Human">Human</option>
+          <option value="Alien">Alien</option>
+
+        </select>
 
     </div>
 

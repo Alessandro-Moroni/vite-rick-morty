@@ -9,8 +9,10 @@ export const store = reactive({
   nameList: [],
   statusUrl: 'https://rickandmortyapi.com/api/character/?status',
   statusList: [],
+  status: '',
   speciesUrl: 'https://rickandmortyapi.com/api/character/?species',
   speciesList: [],
+  species: '',
   queryParams:{
  
   }

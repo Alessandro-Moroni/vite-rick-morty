@@ -37,14 +37,14 @@ import Main from './components/Main.vue'
       getStatus(){
         axios.get(this.store.statusUrl)
         .then(res =>{
-          this.store.statusList =[...new Set(res.data.results.map(item => item.status))];
+          this.store.statusList = [...new Set(res.data.results.map(item => item.status))];
           console.log(this.store.statusList);
         })
       },
       getSpecies(){
         axios.get(this.store.speciesUrl)
         .then(res =>{
-          this.store.speciesList =[...new Set(res.data.results.map(item => item.species))];
+          this.store.speciesList = [...new Set(res.data.results.map(item => item.species))];
           console.log(this.store.speciesList);
         })
       },
